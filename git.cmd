@@ -1,5 +1,5 @@
 SET path=<path>
-%foo%git pull
-%foo%git add -A .
-%foo%git commit -m "change"
-%foo%git push
+%path%git pull
+%path%git add -A .
+%path%git commit -m "default change message"
+%path%git push
