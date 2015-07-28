@@ -7,6 +7,6 @@ This is an experimental project coordinated by Selçuk Gülcan, Xalıq Novruzlı
 
 [Github Download](https://windows.github.com/)
 
-[git.cmd](http://www.selcukgulcan.com/ezlinks/git.cmd)
+[git.cmd](http://www.selcukgulcan.com/ezlinks/git.rar)
 
 [JSFiddle Demo](http://jsfiddle.net/Shathra/envbmbac/#&togetherjs=MrgANNfFNp)
