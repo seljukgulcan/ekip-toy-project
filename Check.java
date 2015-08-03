@@ -10,55 +10,76 @@ import java.util.*;
 public class Check extends HttpServlet {
 
 	private String message;
+	private Map<String, String> members;
 
 	public void init() throws ServletException {
 
 		message = "";
+		members = new HashMap<String, String>();
+
+		members.put( "selcuk", "selcuk gulcan");
+		members.put( "celal", "celal selcuk karaca");
+		members.put( "ali", "seref ali yataman");
+		members.put( "xalig", "xalig novruzli");
 	}
 
 	public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
-		response.setContentType("text/html");
+		response.setContentType("application/json");
 		response.setHeader("Access-Control-Allow-Origin", "*");
 
 		PrintWriter out = response.getWriter();
-		message = "error";
 
 		Enumeration paramNames = request.getParameterNames();
 
-		while(paramNames.hasMoreElements()) {
+		if( paramNames.hasMoreElements()) {
 
-			String paramName = (String)paramNames.nextElement();
-			if( paramName.equals("name")) {
+			message = "error";
 
-				String[] paramValues = request.getParameterValues(paramName);
+			while(paramNames.hasMoreElements()) {
 
-				if (paramValues.length == 1) {
-					String paramValue = paramValues[0];
-					if (paramValue.length() != 0) {
+				String paramName = (String)paramNames.nextElement();
+				if( paramName.equals("name")) {
 
-						if( paramValue.equals( "selcuk")) {
+					String[] paramValues = request.getParameterValues(paramName);
 
-							message = "selcuk gulcan";
-						}
+					if (paramValues.length == 1) {
 
-						else if( paramValue.equals( "celal")) {
+						String paramValue = paramValues[0];
+						if (paramValue.length() != 0) {
 
-							message = "celal selcuk karaca";
-						}
+							for (Map.Entry<String, String> entry : members.entrySet()) {
 
-						else if( paramValue.equals( "ali")) {
+								if( entry.getKey().equals( paramValue)) {
 
-							message = "seref ali yataman";
-						}
-
-						else if( paramValue.equals( "xalig")) {
-
-							message = "xalig novruzli";
+									message = "\"" + entry.getValue() + "\"";
+									break;
+								}
+							}
 						}
 					}
 				}
 			}
+		}
+
+		else {
+
+			message = "[";
+			boolean first = true;
+			for (Map.Entry<String, String> entry : members.entrySet()) {
+
+				if( !first) {
+
+					message += ",";
+				}
+				else {
+
+					first = false;
+				}
+
+				message += "\"" + entry.getKey() + "\"";
+			}
+			message += "]";
 		}
 
 		out.println( message);

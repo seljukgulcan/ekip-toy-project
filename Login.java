@@ -24,7 +24,8 @@ public class Login extends HttpServlet {
 
   public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
-	response.setContentType("text/html");
+	response.setContentType("application/json");
+	response.setHeader("Access-Control-Allow-Origin", "*");
 
 	PrintWriter out = response.getWriter();
 
@@ -51,7 +52,7 @@ public class Login extends HttpServlet {
 		}
 	}
 
-	out.println( respond);
+	out.println( "\"" + respond + "\"");
   }
 
   public void destroy() {

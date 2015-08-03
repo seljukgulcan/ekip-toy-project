@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Team Members</title>
+
+	<!--Importing JQuery library-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Importing CSS file-->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script>
+
+	//Server address which we sent our request to.
+	url = "http://env-6931569.jelastic.dogado.eu/Check";
+
+	$(document).ready( function() {
+
+		//When docuemnt is loaded, go to server and fetch team members
+		$.get( url, function( members ) {
+
+			//Get the number of team members
+			var members_size = members.length;
+
+			//Iterate through members
+			for (var i = 0; i < members_size; i++) {
+
+				//Add name of members into unordered list which is in a element whose id is content
+				$( "#content ul" ).append( "<li>" + members[i] + "</li>");
+			}
+		});
+
+		//If user clicks on any list element in #content which holds team member names
+		$(document).on('click', "#content ul li", function( event) {
+
+			//Take the name of the clicked member and give it to server in order to get fullname
+			$.get( url + "?name=" + $(event.target).html(), function( result) {
+
+				//Alert the result coming from server
+				alert( result);
+			});
+		});
+	});
+
+	</script>
+
+</head>
+
+<body>
+	<div id="header">
+		Our Team Members
+	</div>
+	<div id="content">
+
+		<ul>
+		</ul>
+	</div>
+</body>
+</html>

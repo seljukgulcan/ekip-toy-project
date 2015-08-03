@@ -1,0 +1,27 @@
+body {
+
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 24px;
+	color: #333333;
+	background: #EEEEEE;
+}
+
+#header {
+
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	text-align: center;
+}
+
+#content {
+
+	margin: 0px auto;
+	width: 800px;
+	border: 1px solid #333333;
+}
+
+#content ul {
+
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}

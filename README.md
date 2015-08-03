@@ -1,6 +1,35 @@
 # ekip-toy-project
 
-This is an experimental project coordinated by Selçuk Gülcan, Xalıq Novruzlı, Celal S.Karaca, Ş.Ali Yataman   
+2 tane servis eklendi Check ve Login olmak üzere. team klasöründeki team.html dosyası Check servisini kullanıyor örnek olması açısından. Html, css, Javascript/Jquery kullanarak client tarafında bu servisleri kullanan bi uygulama geliştirmeye çalışalım. Check servisi örnek olması açısından koydum team.html dosyasını inceleyerek olayı kavrayabiliceğinizi düşünüyorum. Ajax sorgusu yapma, JQuery'de DOM elementlerini modify etme konularını öğrenerek ve örnek olan team.html dosyasını inceleyerek Login servisini kullanan bir uygulama yapalım. Ekranda username ve password input kutuları olsun, login butonuna tıklanıldığında girilen bilgileri Login servisine göndersin, ve sonucun ne olduğunu göstersin. Servislerin nasıl kullanılacağı aşağıda var.
+
+## Servisler
+
+Tüm servisler GET methoduyla çalışıyor.
+Servis adresi: http://env-6931569.jelastic.dogado.eu/
+Kullanılabilir Servisler: Check, Login.
+
+### Check
+
+Herhangi bir parametre verilmedigi zaman, ekip elamanlarının isimlerini array olarak döndürüyor. Örnek: http://env-6931569.jelastic.dogado.eu/Check
+
+name parametresine yukarıdaki sorgudan dönen herhangi bir elemanın ismi verildiğinde o elemanın tüm ismini dönüyor. Örnek: http://env-6931569.jelastic.dogado.eu/Check?name=ali sorgusu "seref ali yataman" sonucunu veriyor.
+
+Bunlar dışındaki tüm durumlarda "error" sonucunu dönüyor.
+
+### Login
+
+Kullanıcı adı ve şifre girdilerini kontrol ediyor. Aslında server tarafında herhangi bir kullanıcı-şifre bilgisi yok ama client tarafında login olayını test etmek için kullanılabilir.
+username ve password olmak üzere 2 parametre alıyor.
+
+username ve password'ün verilmesi durumunda eğer username-password eşleşmesi doğru ise "OK" sonucunu aksi takdirde "WRONG" sonucunu dönüyor.
+
+Diğer tüm durumlarda request'in valid bir request olmadığını gösteren "BAD" sonucunu dönüyor.
+
+"OK" sonucu vermesi için gereken bilgiler.
+Username: ekip
+Password: 123456
+
+Örnek: http://env-6931569.jelastic.dogado.eu/Login?username=ali&password=63985 wrong sonucunu dönüyor.
 
 ## Useful Links
 [Sublime Editor](http://www.sublimetext.com/)
