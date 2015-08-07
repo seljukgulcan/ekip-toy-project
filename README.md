@@ -1,7 +1,5 @@
 # ekip-toy-project
 
-2 tane servis eklendi Check ve Login olmak üzere. team klasöründeki team.html dosyası Check servisini kullanıyor örnek olması açısından. Html, css, Javascript/Jquery kullanarak client tarafında bu servisleri kullanan bi uygulama geliştirmeye çalışalım. Check servisi örnek olması açısından koydum team.html dosyasını inceleyerek olayı kavrayabiliceğinizi düşünüyorum. Ajax sorgusu yapma, JQuery'de DOM elementlerini modify etme konularını öğrenerek ve örnek olan team.html dosyasını inceleyerek Login servisini kullanan bir uygulama yapalım. Ekranda username ve password input kutuları olsun, login butonuna tıklanıldığında girilen bilgileri Login servisine göndersin, ve sonucun ne olduğunu göstersin. Servislerin nasıl kullanılacağı aşağıda var.
-
 ## Servisler
 
 Tüm servisler GET methoduyla çalışıyor.
